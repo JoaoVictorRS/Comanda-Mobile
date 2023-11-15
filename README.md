@@ -2,6 +2,10 @@
 
 O Comanda Mobile é um sistema de comanda para restaurantes que oferece funcionalidades essenciais para a gestão de pedidos e histórico. Desenvolvido de forma simples, proporciona uma experiência fácil e eficiente para o gerenciamento de refeições e pedidos.
 
+## Como Rodar
+- **npm i**
+- **npx expo start**
+
 ## Funcionalidades
 
 ### Cadastro de Refeições
