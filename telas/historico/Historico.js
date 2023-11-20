@@ -42,6 +42,14 @@ const Historico = ({ navigation }) => {
     return 0; // Retorna 0 se o preço não for encontrado
   }
 
+  
+  function limparHistorico() {
+    AsyncStorage.removeItem('historico');
+    setHistorico([]);
+    setTotalGeral(0);
+    setShowConfirmation(false);
+  }
+  
   function calcularTotalItem(prato) {
     let totalItem = 0;
     prato.forEach(nomePrato => {
@@ -49,14 +57,7 @@ const Historico = ({ navigation }) => {
     });
     return totalItem;
   }
-
-  function limparHistorico() {
-    AsyncStorage.removeItem('historico');
-    setHistorico([]);
-    setTotalGeral(0);
-    setShowConfirmation(false);
-  }
-
+  
   function calcularTotalGeral(historico) {
     let total = 0;
     historico.forEach((item) => {
@@ -64,15 +65,14 @@ const Historico = ({ navigation }) => {
     });
     setTotalGeral(total);
   }
-
+  
+  
   return (
     <>
       <ScrollView style={{ padding: 15 }}>
         {historico.length > 0 && (
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', marginBottom: 25, marginTop: 10 }}>
-            <Button mode="outlined" onPress={confirmarExclusaoTodos}>
-              Limpar Histórico
-            </Button>
+            <Button mode="outlined" onPress={confirmarExclusaoTodos}>Limpar Histórico</Button>
             <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
               Total Geral: <Text style={{ color: 'green', fontWeight: 'bold', fontSize: 20 }}>R$ {totalGeral.toFixed(2)}</Text>
             </Text>

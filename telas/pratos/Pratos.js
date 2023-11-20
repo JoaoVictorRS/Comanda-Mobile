@@ -49,7 +49,7 @@ const Pratos = ({ navigation }) => {
             <Card key={i} mode='outlined' style={{ marginBottom: 10 }}>
               <Card.Content>
                 <Text style={{ marginBottom: '2%', fontWeight: 'bold' }} variant="titleLarge">{item.nome}</Text>
-                <Text variant="bodyMedium" style={{ fontWeight: 'bold' }}>Igredientes: {item.igredientes}</Text>
+                <Text variant="bodyMedium" style={{ fontWeight: 'bold' }}>Igredientes: <Text>{item.igredientes}</Text></Text>
               </Card.Content>
               <Card.Actions>
                 <Text style={{ marginEnd: '40.5%', fontWeight: 'bold' }} variant="bodyLarge">Preço: <Text style={{ color: 'green' }}>{item.preco}</Text></Text>

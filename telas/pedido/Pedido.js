@@ -7,6 +7,7 @@ import { Button, Card, Dialog, Divider, FAB, IconButton, Portal, Text } from 're
 const Pedido = ({ navigation }) => {
 
   const [pedido, setPedido] = useState([])
+  const [prato, setPrato] = useState([])
   const [idExcluir, setIdExcluir] = useState(0)
 
   const [visible, setVisible] = React.useState(false);
@@ -23,6 +24,11 @@ const Pedido = ({ navigation }) => {
     AsyncStorage.getItem('pedido').then(resultado => {
       resultado = JSON.parse(resultado) || []
       setPedido(resultado)
+    })
+
+    AsyncStorage.getItem('prato').then(resultado => {
+      resultado = JSON.parse(resultado) || []
+      setPrato(resultado)
     })
   }
 
@@ -141,12 +147,16 @@ const Pedido = ({ navigation }) => {
 
       </ScrollView>
 
-      <FAB
+      {prato.length === 0 ? (
+        <></>
+      ) : (
+        <FAB
         icon="plus"
         size='small'
         style={{ position: 'absolute', right: 10, bottom: 10 }}
         onPress={() => navigation.push('pedido-form')}
       />
+      )}
     </>
   )
 }
